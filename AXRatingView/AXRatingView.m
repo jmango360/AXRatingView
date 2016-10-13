@@ -5,10 +5,6 @@
 #import "AXRatingView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AXRatingView () {
-    CGFloat oldValue;
-}
-
 @end
 
 @implementation AXRatingView
@@ -22,7 +18,6 @@
     _numberOfStar = 5;
     _stepInterval = 0.0;
     _minimumValue = 0.0;
-    oldValue = 0.0;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -181,11 +176,6 @@
     }
 }
 
-- (void) setMinimumValue:(float)minimumValue {
-    self.minimumValue = minimumValue;
-    oldValue = minimumValue;
-}
-
 #pragma mark - Operation
 
 - (CALayer *)generateMaskLayer
@@ -237,11 +227,8 @@
     }
     [self setValue:value];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
-    if (oldValue != value) {
-        oldValue = value;
-        if (self.valueChanged) {
+    if (self.valueChanged) {
             self.valueChanged(value);
-        }
     }
 }
 
