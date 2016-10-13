@@ -9,6 +9,7 @@
   CALayer *_highlightLayer;
   UIImage *_markImage;
 }
+
 @property (nonatomic) NSUInteger numberOfStar;
 @property (copy, nonatomic) NSString *markCharacter;
 @property (strong, nonatomic) UIFont *markFont;
@@ -18,5 +19,8 @@
 @property (nonatomic) float value;
 @property (nonatomic) float stepInterval;
 @property (nonatomic) float minimumValue;
+
+
+@property (nonatomic, copy, nullable) void (^valueChanged)(CGFloat value);
 
 @end
