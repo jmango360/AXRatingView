@@ -5,8 +5,6 @@
 #import "AXRatingView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@end
-
 @implementation AXRatingView
 
 - (void)axRatingViewInit {
